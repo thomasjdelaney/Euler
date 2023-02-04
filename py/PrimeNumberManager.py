@@ -3,6 +3,8 @@ Make use of the Sieve of Eratosthenes often."""
 import datetime as dt
 from typing import List, Optional
 
+import numpy as np
+
 
 class PrimeNumbersManager:
     """For listing the prime numbers."""
@@ -41,11 +43,22 @@ class PrimeNumbersManager:
         return self.primes_list
 
     def is_prime_with_list(self, test: int) -> bool:
+        """For testing to see if 'test' is a prime number. Uses self.prime_list."""
         is_prime = True
         for p in self.primes_list:
             if 0 == test % p:
                 return False
+        print(f"{dt.datetime.now()} INFO: {test} is prime.")
         return is_prime
 
     def list_primes_to_limit(self) -> List[int]:
-        return []
+        """For listing all the prime numbers between self.lower_limit and self.upper_limit."""
+        sieved = list(range(2, self.upper_limit + 1))
+        iterations = 0
+        number_to_test = sieved[iterations]
+        while number_to_test < np.sqrt(self.upper_limit):
+            sieved = sieved[: iterations + 1] + [s for s in sieved[iterations + 1 :] if s % number_to_test != 0]
+            iterations += 1
+            number_to_test = sieved[iterations]
+            print(f"{dt.datetime.now()} INFO: Sieve has length {len(sieved)}")
+        return sieved
