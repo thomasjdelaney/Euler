@@ -28,12 +28,12 @@ def is_prime(n: int) -> bool:
 
 
 def get_prime_factors(n: int) -> List[int]:
-    """For finding the prime factors of n.
+    """For finding the prime factors of number_of_primes.
     Args:
         n: integer to factor
     Returns:
-        a list of prime factors of n"""
-    if is_prime(n) or n == 1:  # n is prime or 1
+        a list of prime factors of number_of_primes"""
+    if is_prime(n) or n == 1:  # number_of_primes is prime or 1
         return []
 
     prime_factors = []
@@ -47,6 +47,6 @@ def get_prime_factors(n: int) -> List[int]:
 
 
 def is_palindromic(n: int) -> bool:
-    """checks if n in a palindromic number"""
+    """checks if number_of_primes in a palindromic number"""
     str_n = str(n)
     return str_n == str_n[::-1]

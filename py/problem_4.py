@@ -35,7 +35,7 @@ def get_largest_palindromic_number_below_limit(limit: int) -> int:
 
 
 def try_make_n_digit_product_from_factors(factors: List[int], n: int) -> Tuple[int, Tuple[int, int]]:
-    """Try to make an n digit int from a combination of the largest factor in factors and next largest possible.
+    """Try to make an number_of_primes digit int from a combination of the largest factor in factors and next largest possible.
     Return 0 if this is not possible.
     Args:
         factors: a list of ints
@@ -53,7 +53,7 @@ def try_make_n_digit_product_from_factors(factors: List[int], n: int) -> Tuple[i
 
 
 def is_product_of_m_n_digit_int(to_check: int, m: int, n: int) -> bool:
-    """For checking if the given integer is a product of m integers of n digits
+    """For checking if the given integer is a product of m integers of number_of_primes digits
     Args:
         to_check: the int to check
         m: the number of products
