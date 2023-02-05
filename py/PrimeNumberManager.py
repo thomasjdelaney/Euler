@@ -51,14 +51,14 @@ class PrimeNumbersManager:
         print(f"{dt.datetime.now()} INFO: {test} is prime.")
         return is_prime
 
-    def list_primes_to_limit(self) -> List[int]:
+    def list_primes_to_limit(self, verbose: bool = False) -> np.ndarray:
         """For listing all the prime numbers between self.lower_limit and self.upper_limit."""
-        sieved = list(range(2, self.upper_limit + 1))
-        iterations = 0
-        number_to_test = sieved[iterations]
-        while number_to_test < np.sqrt(self.upper_limit):
-            sieved = sieved[: iterations + 1] + [s for s in sieved[iterations + 1 :] if s % number_to_test != 0]
-            iterations += 1
-            number_to_test = sieved[iterations]
-            print(f"{dt.datetime.now()} INFO: Sieve has length {len(sieved)}")
-        return sieved
+        sieved = np.arange(2, self.upper_limit + 1)
+        prime_to_use = sieved[0]
+        primes = []
+        while prime_to_use < np.sqrt(self.upper_limit):
+            sieved = sieved[sieved % prime_to_use != 0]
+            primes.append(prime_to_use)
+            prime_to_use = sieved[0]
+            print(f"{dt.datetime.now()} INFO: Sieve has length {len(sieved)}") if verbose else None
+        return np.concatenate((primes, sieved))
