@@ -13,8 +13,24 @@ Let us list the factors of the first seven triangle numbers:
     15: 1,3,5,15
     21: 1,3,7,21
     28: 1,2,4,7,14,28
+    36: 1,2,3,4,6,9,12,18,36
+    45: 1,3,5,9,15,45
+    55: 1,5,11,55
 
 We can see that 28 is the first triangle number to have over five divisors.
 
 What is the value of the first triangle number to have over five hundred divisors?
 """
+from math import comb
+from Integer import Integer
+
+
+i = 1
+triangle_number = i
+number_divisors = 0
+while number_divisors < 500:
+    i += 1
+    triangle_number += i
+    num_prime_factors = len(Integer(i).prime_factors())
+    number_divisors = comb(num_prime_factors, 2)
+    print(f"Integer: {i}, number of divisors: {number_divisors}")
