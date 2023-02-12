@@ -1,7 +1,9 @@
 """
 A class for doing more things with an integer
 """
-from typing import List
+import numpy as np
+from typing import List, Union, Set
+from itertools import combinations
 
 
 class Integer:
@@ -25,3 +27,12 @@ class Integer:
         if temp_value > 1:
             factors.append(temp_value)
         return factors
+
+    def divisors(self) -> Set[int]:
+        """For getting the divisors of the given integer."""
+        divisors = {1}
+        prime_factors = self.prime_factors()
+        for i in range(len(prime_factors) + 1):
+            combo = combinations(prime_factors, i)
+            [divisors.add(np.prod(c)) for c in combo]
+        return divisors
