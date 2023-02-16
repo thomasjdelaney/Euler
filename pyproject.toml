@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "todolist"
+name = "euler"
 version = "0.1.0"
 description = "A to do list manager written in python"
 authors = ["Thomas Delaney <thomas.delaney@posteo.net>"]
@@ -12,6 +12,7 @@ typing_extensions = "*"
 tomli = "*"
 black = "*"
 isort = "*"
+numpy = "*"
 
 [tool.black]
 line-length = 120
