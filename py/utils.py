@@ -50,3 +50,26 @@ def is_palindromic(n: int) -> bool:
     """checks if number_of_primes in a palindromic number"""
     str_n = str(n)
     return str_n == str_n[::-1]
+
+
+def long_summation(numbers: np.ndarray | List[List[int]]) -> List[int]:
+    """A function for automatically doing long summation. stores the results as a list of ints that can be strung
+    together to give the answer.
+    Args:
+        numbers: the list of integers to sum
+    Returns:
+        list of integers"""
+    if isinstance(numbers, list):
+        numbers = np.array(numbers)
+
+    long_sum = []
+    left_over = 0
+    num_rows, num_cols = numbers.shape
+    for i, column in enumerate(numbers.T[::-1]):
+        col_sum = column.sum() + left_over
+        left_over = np.floor_divide(col_sum, 10)
+        if i < num_cols - 1:
+            long_sum.append(col_sum - 10*left_over)
+        else:
+            long_sum.append(col_sum)
+    return long_sum[::-1]

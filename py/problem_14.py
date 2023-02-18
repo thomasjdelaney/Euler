@@ -60,3 +60,8 @@ class HailstoneSequenceLengths:
                 hail_stone_seq = HailstoneSequence(n)
                 for i, sn in enumerate(hail_stone_seq.sequence):
                     self.sequence_lengths[sn] = len(hail_stone_seq.sequence) - i
+
+
+hsl = HailstoneSequenceLengths(list(range(1, 1000000)))
+answer = max(hsl.sequence_lengths, key=hsl.sequence_lengths.get)
+print(f"Answer: {answer}")
