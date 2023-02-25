@@ -9,54 +9,12 @@ For example, 342 (three hundred and forty-two) contains 23 letters and
 115 (one hundred and fifteen) contains 20 letters.
 The use of "and" when writing out numbers is in compliance with British usage.
 """
+from NumberWriter import NumberWriter
 
+ans = 0
+for i in range(1, 1001):
+    num_writer = NumberWriter(i)
+    edited_written = num_writer.written.replace(" ", "").replace("-", "")
+    ans += len(edited_written)
 
-class NumberWriter:
-    """A class for writing numbers out in words."""
-    num_to_str = {
-        1: "one",
-        2: "two",
-        3: "three",
-        4: "four",
-        5: "five",
-        6: "six",
-        7: "seven",
-        8: "eight",
-        9: "nine",
-        10: "ten",
-        11: "eleven",
-        12: "twelve",
-        13: "thirteen",
-        14: "fourteen",
-        15: "fifteen",
-        16: "sixteen",
-        17: "seventeen",
-        18: "eighteen",
-        19: "nineteen",
-        20: "twenty",
-        30: "thirty",
-        40: "forty",
-        50: "fifty",
-        60: "sixty",
-        70: "seventy",
-        80: "eighty",
-        90: "ninety",
-        100: "hundred",
-        1000: "thousand",
-    }
-
-    def __init__(self, n: int) -> None:
-        """For initialising the object"""
-        self.n = n
-        self.written = ''
-        self.set_written()
-
-    def set_written(self) -> None:
-        if self.n in self.num_to_str:
-            self.written = self.num_to_str[self.n]
-        elif 20 < self.n < 100:
-            mod_ten = self.n % 10
-            self.written = f"{self.num_to_str[self.n - mod_ten]}-{self.num_to_str[mod_ten]}"
-
-
-self = NumberWriter(68)
+print(f"Answer: {ans}")
