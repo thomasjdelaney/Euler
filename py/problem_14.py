@@ -28,6 +28,7 @@ def collatz_iteration(n: int) -> int:
 
 class HailstoneSequence:
     """A class for defining a hailstone sequence starting from the given integer."""
+
     def __init__(self, start: int) -> None:
         """For initialising the object.
         Args:
@@ -48,6 +49,7 @@ class HailstoneSequence:
 
 class HailstoneSequenceLengths:
     """A class for getting the lengths of all the hailstone sequences for all the numbers in the given list"""
+
     def __init__(self, number_list: List[int]):
         self.number_list = number_list
         self.number_list.sort(reverse=True)

@@ -11,6 +11,6 @@ Ashley says: We have to move 2N times to get from one corner to the other.
 from math import comb
 
 grid_size = 20
-ans = comb(2*grid_size, grid_size)
+ans = comb(2 * grid_size, grid_size)
 
 print(f"Answer: {ans}")

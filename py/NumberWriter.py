@@ -1,4 +1,4 @@
-from typing import Union, List
+from typing import List, Union
 
 
 def split_number(number: int, split_length: int = 3) -> List[str]:
@@ -14,14 +14,15 @@ def split_number(number: int, split_length: int = 3) -> List[str]:
     if extra:
         starting = number_str[:extra]
         rest = number_str[extra:]
-        split = [starting] + [rest[i:i + split_length] for i in range(0, len(rest), split_length)]
+        split = [starting] + [rest[i : i + split_length] for i in range(0, len(rest), split_length)]
     else:
-        split = [number_str[i:i + split_length] for i in range(0, len(number_str), split_length)]
+        split = [number_str[i : i + split_length] for i in range(0, len(number_str), split_length)]
     return split
 
 
 class NumberWriter:
     """A class for writing numbers out in words."""
+
     num_to_str = {
         1: "one",
         2: "two",
@@ -66,7 +67,7 @@ class NumberWriter:
     def __init__(self, n: int) -> None:
         """For initialising the object"""
         self.n = n
-        self.written = ''
+        self.written = ""
         self.set_written()
 
     def set_written(self) -> None:

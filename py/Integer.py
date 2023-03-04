@@ -1,13 +1,13 @@
 """
 A class for doing more things with an integer
 """
-import numpy as np
-from typing import List, Union, Set
 from itertools import combinations
+from typing import List, Set, Union
+
+import numpy as np
 
 
 class Integer:
-
     def __init__(self, value: int) -> None:
         """For initialising the object.
         Args:

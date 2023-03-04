@@ -69,7 +69,7 @@ def long_summation(numbers: np.ndarray | List[List[int]]) -> List[int]:
         col_sum = column.sum() + left_over
         left_over = np.floor_divide(col_sum, 10)
         if i < num_cols - 1:
-            long_sum.append(col_sum - 10*left_over)
+            long_sum.append(col_sum - 10 * left_over)
         else:
             long_sum.append(col_sum)
     return long_sum[::-1]
